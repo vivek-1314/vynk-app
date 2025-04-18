@@ -160,7 +160,7 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:vynkvivek@localhost:5432/vynk?schema=public&connection_limit=10"
+        "value": "postgresql://postgres:vynkvivek@db.xvcoxtzuadgktmweszom.supabase.co:5432/postgres"
       }
     }
   },

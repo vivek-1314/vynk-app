@@ -40,7 +40,7 @@ export default function HomePage() {
   
   const handleSubmit = async (email: string) => {
     try {
-      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/userroute`, { email });
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/userroute`, { email });
 
       if (res.status === 201) {
         console.log(res.data.user.id);
