@@ -1,6 +1,8 @@
 import  prisma  from '@/lib/prisma';
 import { NextResponse } from 'next/server';
 
+const allowedOrigin = process.env.NEXT_PUBLIC_API_URL;
+
 export async function POST(req: Request) {
   try {
     const { email } = await req.json();
@@ -36,7 +38,6 @@ export async function POST(req: Request) {
     );
 
 
-    const allowedOrigin = process.env.NEXT_PUBLIC_API_URL;
 
     // Add CORS headers directly to the response
     response.headers.set('Access-Control-Allow-Origin', allowedOrigin!);
@@ -52,4 +53,15 @@ export async function POST(req: Request) {
       { status: 500 }
     );
   }
+}
+
+export async function OPTIONS() {
+  const response = new NextResponse(null, { status: 200 });
+  const allowedOrigin = process.env.NEXT_PUBLIC_API_URL;
+  
+  response.headers.set('Access-Control-Allow-Origin', allowedOrigin!);
+  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  
+  return response;
 }
