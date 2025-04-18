@@ -124,10 +124,10 @@ exports.Prisma.UserScalarFieldEnum = {
 
 exports.Prisma.ThoughtScalarFieldEnum = {
   id: 'id',
-  thought: 'thought',
   embedding: 'embedding',
   userId: 'userId',
-  createdAt: 'createdAt'
+  createdAt: 'createdAt',
+  thought: 'thought'
 };
 
 exports.Prisma.SortOrder = {

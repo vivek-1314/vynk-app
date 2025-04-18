@@ -16,9 +16,9 @@ model User {
 
 model Thought {
   id        String   @id @default(uuid())
-  thought   String
-  embedding Float[] // No @db.Vector(1536)
+  embedding Float[]
   userId    String
-  user      User     @relation(fields: [userId], references: [id])
   createdAt DateTime @default(now())
+  thought   String
+  user      User     @relation(fields: [userId], references: [id])
 }

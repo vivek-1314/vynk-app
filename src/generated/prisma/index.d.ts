@@ -2043,24 +2043,24 @@ export namespace Prisma {
 
   export type ThoughtMinAggregateOutputType = {
     id: string | null
-    thought: string | null
     userId: string | null
     createdAt: Date | null
+    thought: string | null
   }
 
   export type ThoughtMaxAggregateOutputType = {
     id: string | null
-    thought: string | null
     userId: string | null
     createdAt: Date | null
+    thought: string | null
   }
 
   export type ThoughtCountAggregateOutputType = {
     id: number
-    thought: number
     embedding: number
     userId: number
     createdAt: number
+    thought: number
     _all: number
   }
 
@@ -2075,24 +2075,24 @@ export namespace Prisma {
 
   export type ThoughtMinAggregateInputType = {
     id?: true
-    thought?: true
     userId?: true
     createdAt?: true
+    thought?: true
   }
 
   export type ThoughtMaxAggregateInputType = {
     id?: true
-    thought?: true
     userId?: true
     createdAt?: true
+    thought?: true
   }
 
   export type ThoughtCountAggregateInputType = {
     id?: true
-    thought?: true
     embedding?: true
     userId?: true
     createdAt?: true
+    thought?: true
     _all?: true
   }
 
@@ -2184,10 +2184,10 @@ export namespace Prisma {
 
   export type ThoughtGroupByOutputType = {
     id: string
-    thought: string
     embedding: number[]
     userId: string
     createdAt: Date
+    thought: string
     _count: ThoughtCountAggregateOutputType | null
     _avg: ThoughtAvgAggregateOutputType | null
     _sum: ThoughtSumAggregateOutputType | null
@@ -2211,40 +2211,40 @@ export namespace Prisma {
 
   export type ThoughtSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    thought?: boolean
     embedding?: boolean
     userId?: boolean
     createdAt?: boolean
+    thought?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["thought"]>
 
   export type ThoughtSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    thought?: boolean
     embedding?: boolean
     userId?: boolean
     createdAt?: boolean
+    thought?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["thought"]>
 
   export type ThoughtSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    thought?: boolean
     embedding?: boolean
     userId?: boolean
     createdAt?: boolean
+    thought?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["thought"]>
 
   export type ThoughtSelectScalar = {
     id?: boolean
-    thought?: boolean
     embedding?: boolean
     userId?: boolean
     createdAt?: boolean
+    thought?: boolean
   }
 
-  export type ThoughtOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "thought" | "embedding" | "userId" | "createdAt", ExtArgs["result"]["thought"]>
+  export type ThoughtOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "embedding" | "userId" | "createdAt" | "thought", ExtArgs["result"]["thought"]>
   export type ThoughtInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -2262,10 +2262,10 @@ export namespace Prisma {
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      thought: string
       embedding: number[]
       userId: string
       createdAt: Date
+      thought: string
     }, ExtArgs["result"]["thought"]>
     composites: {}
   }
@@ -2691,10 +2691,10 @@ export namespace Prisma {
    */
   interface ThoughtFieldRefs {
     readonly id: FieldRef<"Thought", 'String'>
-    readonly thought: FieldRef<"Thought", 'String'>
     readonly embedding: FieldRef<"Thought", 'Float[]'>
     readonly userId: FieldRef<"Thought", 'String'>
     readonly createdAt: FieldRef<"Thought", 'DateTime'>
+    readonly thought: FieldRef<"Thought", 'String'>
   }
     
 
@@ -3133,10 +3133,10 @@ export namespace Prisma {
 
   export const ThoughtScalarFieldEnum: {
     id: 'id',
-    thought: 'thought',
     embedding: 'embedding',
     userId: 'userId',
-    createdAt: 'createdAt'
+    createdAt: 'createdAt',
+    thought: 'thought'
   };
 
   export type ThoughtScalarFieldEnum = (typeof ThoughtScalarFieldEnum)[keyof typeof ThoughtScalarFieldEnum]
@@ -3267,19 +3267,19 @@ export namespace Prisma {
     OR?: ThoughtWhereInput[]
     NOT?: ThoughtWhereInput | ThoughtWhereInput[]
     id?: StringFilter<"Thought"> | string
-    thought?: StringFilter<"Thought"> | string
     embedding?: FloatNullableListFilter<"Thought">
     userId?: StringFilter<"Thought"> | string
     createdAt?: DateTimeFilter<"Thought"> | Date | string
+    thought?: StringFilter<"Thought"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type ThoughtOrderByWithRelationInput = {
     id?: SortOrder
-    thought?: SortOrder
     embedding?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
+    thought?: SortOrder
     user?: UserOrderByWithRelationInput
   }
 
@@ -3288,19 +3288,19 @@ export namespace Prisma {
     AND?: ThoughtWhereInput | ThoughtWhereInput[]
     OR?: ThoughtWhereInput[]
     NOT?: ThoughtWhereInput | ThoughtWhereInput[]
-    thought?: StringFilter<"Thought"> | string
     embedding?: FloatNullableListFilter<"Thought">
     userId?: StringFilter<"Thought"> | string
     createdAt?: DateTimeFilter<"Thought"> | Date | string
+    thought?: StringFilter<"Thought"> | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
   export type ThoughtOrderByWithAggregationInput = {
     id?: SortOrder
-    thought?: SortOrder
     embedding?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
+    thought?: SortOrder
     _count?: ThoughtCountOrderByAggregateInput
     _avg?: ThoughtAvgOrderByAggregateInput
     _max?: ThoughtMaxOrderByAggregateInput
@@ -3313,10 +3313,10 @@ export namespace Prisma {
     OR?: ThoughtScalarWhereWithAggregatesInput[]
     NOT?: ThoughtScalarWhereWithAggregatesInput | ThoughtScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Thought"> | string
-    thought?: StringWithAggregatesFilter<"Thought"> | string
     embedding?: FloatNullableListFilter<"Thought">
     userId?: StringWithAggregatesFilter<"Thought"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Thought"> | Date | string
+    thought?: StringWithAggregatesFilter<"Thought"> | string
   }
 
   export type UserCreateInput = {
@@ -3360,57 +3360,57 @@ export namespace Prisma {
 
   export type ThoughtCreateInput = {
     id?: string
-    thought: string
     embedding?: ThoughtCreateembeddingInput | number[]
     createdAt?: Date | string
+    thought: string
     user: UserCreateNestedOneWithoutThoughtInput
   }
 
   export type ThoughtUncheckedCreateInput = {
     id?: string
-    thought: string
     embedding?: ThoughtCreateembeddingInput | number[]
     userId: string
     createdAt?: Date | string
+    thought: string
   }
 
   export type ThoughtUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    thought?: StringFieldUpdateOperationsInput | string
     embedding?: ThoughtUpdateembeddingInput | number[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    thought?: StringFieldUpdateOperationsInput | string
     user?: UserUpdateOneRequiredWithoutThoughtNestedInput
   }
 
   export type ThoughtUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    thought?: StringFieldUpdateOperationsInput | string
     embedding?: ThoughtUpdateembeddingInput | number[]
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    thought?: StringFieldUpdateOperationsInput | string
   }
 
   export type ThoughtCreateManyInput = {
     id?: string
-    thought: string
     embedding?: ThoughtCreateembeddingInput | number[]
     userId: string
     createdAt?: Date | string
+    thought: string
   }
 
   export type ThoughtUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    thought?: StringFieldUpdateOperationsInput | string
     embedding?: ThoughtUpdateembeddingInput | number[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    thought?: StringFieldUpdateOperationsInput | string
   }
 
   export type ThoughtUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    thought?: StringFieldUpdateOperationsInput | string
     embedding?: ThoughtUpdateembeddingInput | number[]
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    thought?: StringFieldUpdateOperationsInput | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -3497,10 +3497,10 @@ export namespace Prisma {
 
   export type ThoughtCountOrderByAggregateInput = {
     id?: SortOrder
-    thought?: SortOrder
     embedding?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
+    thought?: SortOrder
   }
 
   export type ThoughtAvgOrderByAggregateInput = {
@@ -3509,16 +3509,16 @@ export namespace Prisma {
 
   export type ThoughtMaxOrderByAggregateInput = {
     id?: SortOrder
-    thought?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
+    thought?: SortOrder
   }
 
   export type ThoughtMinOrderByAggregateInput = {
     id?: SortOrder
-    thought?: SortOrder
     userId?: SortOrder
     createdAt?: SortOrder
+    thought?: SortOrder
   }
 
   export type ThoughtSumOrderByAggregateInput = {
@@ -3681,16 +3681,16 @@ export namespace Prisma {
 
   export type ThoughtCreateWithoutUserInput = {
     id?: string
-    thought: string
     embedding?: ThoughtCreateembeddingInput | number[]
     createdAt?: Date | string
+    thought: string
   }
 
   export type ThoughtUncheckedCreateWithoutUserInput = {
     id?: string
-    thought: string
     embedding?: ThoughtCreateembeddingInput | number[]
     createdAt?: Date | string
+    thought: string
   }
 
   export type ThoughtCreateOrConnectWithoutUserInput = {
@@ -3724,10 +3724,10 @@ export namespace Prisma {
     OR?: ThoughtScalarWhereInput[]
     NOT?: ThoughtScalarWhereInput | ThoughtScalarWhereInput[]
     id?: StringFilter<"Thought"> | string
-    thought?: StringFilter<"Thought"> | string
     embedding?: FloatNullableListFilter<"Thought">
     userId?: StringFilter<"Thought"> | string
     createdAt?: DateTimeFilter<"Thought"> | Date | string
+    thought?: StringFilter<"Thought"> | string
   }
 
   export type UserCreateWithoutThoughtInput = {
@@ -3768,30 +3768,30 @@ export namespace Prisma {
 
   export type ThoughtCreateManyUserInput = {
     id?: string
-    thought: string
     embedding?: ThoughtCreateembeddingInput | number[]
     createdAt?: Date | string
+    thought: string
   }
 
   export type ThoughtUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    thought?: StringFieldUpdateOperationsInput | string
     embedding?: ThoughtUpdateembeddingInput | number[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    thought?: StringFieldUpdateOperationsInput | string
   }
 
   export type ThoughtUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    thought?: StringFieldUpdateOperationsInput | string
     embedding?: ThoughtUpdateembeddingInput | number[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    thought?: StringFieldUpdateOperationsInput | string
   }
 
   export type ThoughtUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    thought?: StringFieldUpdateOperationsInput | string
     embedding?: ThoughtUpdateembeddingInput | number[]
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    thought?: StringFieldUpdateOperationsInput | string
   }
 
 
