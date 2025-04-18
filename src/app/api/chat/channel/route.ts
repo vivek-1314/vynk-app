@@ -25,5 +25,13 @@ export async function POST(req: Request) {
 
   await channel.create();
 
-  return NextResponse.json({ channelId: channel.id }, { status: 200 });
+  const response = NextResponse.json({ channelId: channel.id }, { status: 200 });
+
+
+  const allowedOrigin = process.env.NEXT_PUBLIC_API_URL;
+  response.headers.set('Access-Control-Allow-Origin',allowedOrigin!); // Your frontend URL
+  response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+  return response;
 }

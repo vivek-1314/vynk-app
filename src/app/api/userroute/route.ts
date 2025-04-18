@@ -1,4 +1,5 @@
 import  prisma  from '@/lib/prisma';
+import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   try {
@@ -29,7 +30,21 @@ export async function POST(req: Request) {
     });
 
     // Respond with the newly created user
-    return new Response(JSON.stringify({ user: newUser }), { status: 201 });
+    const response = new NextResponse(
+      JSON.stringify({ user: newUser }),
+      { status: 201 }
+    );
+
+
+    const allowedOrigin = process.env.NEXT_PUBLIC_API_URL;
+
+    // Add CORS headers directly to the response
+    response.headers.set('Access-Control-Allow-Origin', allowedOrigin!);
+    response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+    response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+
+    return response;
+
   } catch (error) {
     console.error('Error creating user:', error);
     return new Response(
