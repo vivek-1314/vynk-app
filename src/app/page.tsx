@@ -40,7 +40,7 @@ export default function HomePage() {
   
   const handleSubmit = async (email: string) => {
     try {
-      const res = await axios.post("http://localhost:3000/api/userroute", { email });
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/userroute`, { email });
 
       if (res.status === 201) {
         console.log(res.data.user.id);
@@ -55,10 +55,10 @@ export default function HomePage() {
 
   const sendThought = async (userId: string, text: string) => {
     try {
-      const res = await axios.post("/api/thoughts", { userId, text });
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/thoughts`, { userId, text });
       const thought = res.data.thought;
 
-      const socket = io("http://localhost:3001");
+      const socket = io(process.env.NEXT_PUBLIC_SERVER_URL);
 
       socket.on("connect", () => {
         socket.emit("join_pool", thought);
@@ -75,7 +75,7 @@ export default function HomePage() {
         setMatchedData(data);
       
         try {
-          const response = await axios.post("/api/chat/token", {
+          const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/chat/token`, {
             userId: userId,
           });
       
@@ -94,7 +94,7 @@ export default function HomePage() {
           );
           console.log("Connected to Stream Chat" , token);
 
-          const channelRes = await axios.post("/api/chat/channel", {
+          const channelRes = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/chat/channel`, {
             userId,
             partnerId: data.matchedWith.userId, 
           });
