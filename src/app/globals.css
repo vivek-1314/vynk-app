@@ -1,0 +1,136 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@font-face {
+  font-family: 'YourFont';
+  src: url('/fonts/Syne-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.font1{
+  font-family: 'YourFont', Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'YourFont2';
+  src: url('/fonts/Syne-ExtraBold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+.font2{
+  font-family: 'YourFont2', sans-serif;
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'YourFont3';
+  src: url('/fonts/Unbounded-Bold.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.font3{
+  font-family: 'YourFont3', sans-serif;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'YourFont4';
+  src: url('/public/fonts/Unbounded-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.font4{
+  font-family: 'YourFont4', sans-serif;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'YourFont5';
+  src: url('/public/fonts/Unbounded-Light.ttf') format('truetype');
+  font-weight: normal;
+  font-style: italic;
+}
+.font5{
+  font-family: 'YourFont5', sans-serif;
+  font-weight: normal;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'YourFont6';
+  src: url('/fonts/WinkyRough-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+.font6{
+  font-family: 'YourFont6', sans-serif;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'YourFont7';
+  src: url('/fonts/WinkyRough-Light.ttf') format('truetype');
+  font-weight: normal;
+}
+.font7{
+  font-family: 'YourFont7', sans-serif;
+    font-weight: normal;
+}
+
+
+
+.wipe-up {
+  animation: wipeUp 1s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+  animation-delay: 5.5s; /* Adjust delay as needed */
+  opacity: 0; /* Start invisible */
+  position: relative; /* Ensure positioning context for transform */
+  transform: translateY(200%); /* Start far below its final position */
+}
+
+/* Keyframes for the animation */
+@keyframes wipeUp {
+  0% {
+    transform: translateY(150%); /* Start far below the container */
+    opacity: 1; 
+  }
+  100% {
+    transform: translateY(0); /* Move to its final position */
+    opacity: 1; 
+  }
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;         
+  -ms-overflow-style: none;     
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;                
+}
+
