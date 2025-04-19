@@ -127,7 +127,7 @@ const ChatPage = () => {
     <div className="flex flex-col w-full h-screen  items-center p-4 bg-gradient-to-br from-[#A58DC7] via-[#C5B1DF] to-[#A58DC7]">
       <h1 className="fixed top-2 font6 text-xl  font-bold mb-4">Chat with Your Match</h1>
 
-      <div className="scrollbar-hide flex mt-9 overflow-scroll bg-[#222b5a]/50 backdrop-blur-xl rounded-xl p-6 flex-col max-h-[80vh]  space-y-4 mb-4 w-170">
+      <div className="scrollbar-hide max-w-170 w-full flex mt-9 overflow-scroll bg-[#222b5a]/50 backdrop-blur-xl rounded-xl p-6 flex-col max-h-[80vh]  space-y-4 mb-4">
         {messages.map((msg, index) => (
           console.log('Message:', msg),
           <div
@@ -155,13 +155,13 @@ const ChatPage = () => {
         <div ref={bottomRef} />
       </div>
 
-      <div className="fixed bottom-4 left-1/2 transform translate-x-1/2 flex gap-2">
+      <div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
         <input
           type="text"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
           placeholder="Type a message"
-          className="px-4 py-2 focus:outline-none text-black border rounded-lg w-4/5"
+          className="px-4 py-2 focus:outline-none text-black border rounded-lg sm:w-4/5 "
         />
         <button
           onClick={sendMessage}

@@ -44,7 +44,7 @@ export default function LandingPage() {
         }}
       />
 
-      <div className="w-full mt-26 px-4 flex flex-col items-start justify-center">
+      <div className="w-full sm:mt-26 mt-50 px-4 flex flex-col items-start justify-center">
         {
           ["SHARE " ,"THOUGHTS" , "NOT" , "RESUMES"].map((text , index) => {
             return (
@@ -57,7 +57,7 @@ export default function LandingPage() {
                 delay: 5.5,   
                 ease: "easeOut"
               }}
-              className={`text-[5.8rem] tracking-tighter leading-20 font3 text-center`}>
+              className={`sm:text-[5.8rem] text-[13vw] tracking-tighter sm:leading-20 leading-[12vw] font3 text-center `}>
                 {text}
               </motion.div>
               </div>

@@ -128,23 +128,22 @@ export default function HomePage() {
 
   return (
     <main className="relative min-h-screen flex felx-col items-end justify-center p-4">
-      <div className="w-1/2 flex flex-col items-center justify-center mb-8 rounded-xl backdrop-blur-md bg-white/10 border border-white/20 px-3 shadow-lg py-3">
+      <div className="sm:w-1/2 w-full flex flex-col items-center justify-center mb-8 rounded-[2rem] backdrop-blur-md bg-white/10 border border-white/20 px-2 shadow-lg sm:py-3 py-1">
               <div className={`w-full overflow-hidden transition-[height] duration-500 ease-in-out flex justify-center items-center ${
                   Resultpanelopen ? 'h-100' : 'h-0'
                 }`}>
                   searching for a result...
-        </div>
+              </div>
 
-        <section className="w-full  flex items-center justify-between gap-4  ">
+        <section className="w-full  flex items-center justify-between gap-4 ">
           <input placeholder="What’s on your mind right now?" className="w-3/4 focus:outline-none font6 " value={thought} onChange={(e) => {
             setThought(e.target.value);
           }}   type="text" />
-          <section className=" flex flex-grow items-center justify-between gap-4 ">
-            <div className="w-3 h-3 bg-red-300 rounded-full"> </div>
+          <section className=" flex flex-grow items-center justify-end gap-4 ">
             <button onClick={() => {
                   setResultPanelOpen(!Resultpanelopen);
                   sendThought(userId ?? "", thought ?? "");
-                }}className="px-3 text-[0.8rem] font6 rounded-lg bg-white text-black py-2">LET IT OUT</button>
+                }}className="px-3 text-[0.8rem] font6 rounded-full hover:bg-green-700 text-white border border-white text-black py-2">Go</button>
           </section>
         </section>
       </div>
