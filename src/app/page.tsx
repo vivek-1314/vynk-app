@@ -127,7 +127,7 @@ export default function HomePage() {
   }
 
   return (
-    <main className="relative min-h-screen flex felx-col items-end justify-center p-4">
+    <main className="relative sm:min-h-screen h-[95vh] flex felx-col items-end justify-center p-4">
       <div className="sm:w-1/2 w-full flex flex-col items-center justify-center mb-8 rounded-[2rem] backdrop-blur-md bg-white/10 border border-white/20 px-2 shadow-lg sm:py-3 py-1">
               <div className={`w-full overflow-hidden transition-[height] duration-500 ease-in-out flex justify-center items-center ${
                   Resultpanelopen ? 'h-100' : 'h-0'

@@ -33,7 +33,7 @@ const handleScroll = () => {
   }, [handleScroll]);
 
   return (
-    <div className="h-[100vh] overflow-hidden relative w-full ">
+    <div className="min-h-[100vh] overflow-hidden relative w-full ">
             <div
                 className={`fixed  top-0 left-0 w-full h-14 p-2 right-0 z-50 transition-transform ease-in-out duration-300 ${
                     showNavbar ? "transform-none" : "-translate-y-full"

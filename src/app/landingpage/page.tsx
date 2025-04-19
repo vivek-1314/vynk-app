@@ -27,7 +27,7 @@ export default function LandingPage() {
 
 
     return(
-      <main className="w-full h-[100vh] flex flex-col items-start justify-between overflow-hidden relative">
+      <main className="w-full sm:h-[100vh] h-[93vh] flex flex-col items-start justify-between overflow-hidden relative">
           <video
         className="absolute top-0 left-0 w-full h-full object-cover -z-10"
         src={src}
