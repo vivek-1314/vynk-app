@@ -129,10 +129,9 @@ const ChatPage = () => {
 
       <div className="scrollbar-hide max-w-170 w-full flex mt-9 overflow-scroll bg-[#222b5a]/50 backdrop-blur-xl rounded-xl p-6 flex-col max-h-[80vh]  space-y-4 mb-4">
         {messages.map((msg, index) => (
-          console.log('Message:', msg),
           <div
             key={index}
-            className={`flex items-center  ${
+            className={`flex items-center  ${ 
               msg.user?.id === currentUserId ? 'justify-end' : 'justify-start'
             }`}
           >
