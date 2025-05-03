@@ -11,7 +11,22 @@ export default function LandingPage() {
 
 
   const router = useRouter();
-    const [checking, setChecking] = useState(true);
+  const [checking, setChecking] = useState(true);
+  const vynkFeatures = [
+    { id: 0, description: 'Real-time AI-based matching of users based on thought embeddings.' },
+    { id: 1, description: 'Users express current thoughts to initiate anonymous interactions.' },
+    { id: 2, description: 'Instant 1:1 messaging after a match using Stream Chat integration.' },
+    { id: 3, description: 'Temporary usernames like “Calm Fox” or “Curious Owl” for anonymous identity.' },
+    { id: 4, description: 'Conversations begin anonymous with optional mutual identity reveal.' },
+    { id: 5, description: 'AI-enhanced text input suggestions and thought reframes.' },
+    { id: 6, description: 'Core to Vynk—no resumes, no profiles, just thoughts.' },
+    { id: 7, description: 'Vibe Log records key insights and summaries from past drifts.' },
+    { id: 8, description: '“Vibe Radius” lets users define how broad or niche their matching should be.' },
+    { id: 9, description: 'Fallback experience with Echo Mode, ambient visuals, and retry prompts.' },
+    { id: 10, description: 'Users can revisit previous shared sessions or solo reflections.' },
+    { id: 11, description: 'Uses sentence-transformer embeddings for contextual similarity matching.' }
+  ];
+  
   
     useEffect(() => {
       const unsubscribe = onAuthStateChanged(auth, async (user) => {
@@ -90,54 +105,19 @@ export default function LandingPage() {
           <div className="w-full px-4 mt-6">
             <h2 className='text-black text-[6vh] mb-4 funnel-regular'>Features</h2>
           <div className="grid grid-cols-2 grid-rows-6 sm:grid-cols-6 sm:grid-rows-2 gap-4 h-full w-full ">
-              <div className='bg-[#eeefef] rounded-lg flex flex-col gap-1 justify-center items-center funnel-regular text-[#010100] py-20'>
-                <span>Matchmaking</span>
-                <img className='w-6 h-6' src="images_assests/icon1.png" alt="" />
-              </div>
-              <div className='bg-[#eeefef] rounded-lg flex flex-col gap-1 justify-center items-center funnel-regular text-[#535353]'>
-              <span>Thought Sharing</span>
-              <img className='w-6 h-6' src="images_assests/icon2.png" alt="" />
-              </div>
-              <div className='bg-[#eeefef] rounded-lg flex flex-col justify-center items-center funnel-regular text-[#010100]'>
-              <span>Real-Time Chat</span>
-              <img className='w-6 h-6' src="images_assests/icon3.png" alt="" />
-              </div>
-              <div className='bg-[#eeefef] rounded-lg flex flex-col justify-center items-center funnel-regular text-[#535353]'>
-              <span>Mood-Based Aliases</span>
-              <img className='w-6 h-6' src="images_assests/icon4.png" alt="" />
-              </div>
-              <div className='bg-[#eeefef] rounded-lg flex flex-col justify-center items-center funnel-regular text-[#010100]'>
-              <span>Anonymity Layers</span>
-              <img className='w-6 h-6' src="images_assests/icon5png.png" alt="" />
-              </div>
-              <div className='bg-[#eeefef] rounded-lg flex flex-col justify-center items-center funnel-regular text-[#535353]'>
-              <span>Smart Input</span>
-              <img className='w-6 h-6' src="images_assests/icon6.png" alt="" />
-              </div>
-              <div className=" bg-[#eeefef] rounded-lg flex flex-col justify-center items-center funnel-regular text-[#010100]">
-              <img className='w-6 h-6' src="images_assests/icon12.png" alt="" />
-              <span>AI Matching</span>
-              </div>
-              <div className="bg-[#eeefef] rounded-lg flex flex-col justify-center items-center funnel-regular text-[#535353]">
-              <img className='w-6 h-6' src="images_assests/icon11.png" alt="" />
-              <span>History Log</span>
-              </div>
-              <div className=" bg-[#eeefef] rounded-lg flex flex-col justify-center items-center funnel-regular text-[#010100]">
-              <img className='w-6 h-6' src="images_assests/icon10.png" alt="" />
-              <span>Context Control</span>
-              </div>
-              <div className=" bg-[#eeefef] rounded-lg flex flex-col justify-center items-center funnel-regular text-[#535353]">
-              <img className='w-6 h-6' src="images_assests/icon9.png" alt="" />
-              <span>Wait Experience</span>
-              </div>
-              <div className=" bg-[#eeefef] rounded-lg flex flex-col justify-center items-center funnel-regular text-[#010100]">
-              <img className='w-6 h-6' src="images_assests/icon8.png" alt="" />
-              <span>Session Replay</span>
-              </div>
-              <div className=" bg-[#eeefef] rounded-lg flex flex-col justify-center items-center funnel-regular text-[#535353]">
-              <img className='w-6 h-6' src="images_assests/icon5png.png" alt=""  />
-              <span>Anonymity</span>
-              </div>
+            {
+              ['Matchmaking', 'Thought Sharing', 'Real-Time Chat', 'Mood-Based Aliases', 'Anonymity Layers', 'Smart Input', 'Anonymity', 'History Log', 'Context Control', 'Wait Experience', 'Session Replay', 'AI Matching'].map((feature, index) => (
+                <div key={index} className={`bg-[#eeefef] perspective transition-transform duration-700 transform-style-preserve-3d group hover:rotate-y-180 rounded-lg flex flex-col justify-center items-center funnel-regular text-[#010100] py-20 ${index % 2 === 0 ? 'text-[#010100]' : 'text-[#535353]'}`}>
+                  <span>{feature}</span>
+                  <img className='w-6 h-6' src={`images_assests/icon${index===6? 5 :index + 1}.png`} alt="" />
+                  <div className="absolute p-4 text-[0.9rem] w-full h-full backface-hidden funnel-regular bg-gray-200 text-black rounded-xl shadow-xl transform rotate-y-180 flex items-center justify-center">
+                    {
+                      vynkFeatures[index].description
+                    }
+                  </div>
+                </div> 
+                ))
+            }
           </div>
           </div>
 
