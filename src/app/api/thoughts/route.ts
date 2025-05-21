@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
     });
 
     const response =  NextResponse.json({ success: true, thought: newThought }, { status: 201 });
-    response.headers.set('Access-Control-Allow-Origin',allowedOrigin!); // Your frontend URL
+    response.headers.set('Access-Control-Allow-Origin',allowedOrigin!); 
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     return response;

@@ -12,13 +12,13 @@ import { TIMEOUT } from "dns";
 export default function HomePage() {
 
   interface Thought {
-    id: string;
-    embedding: number[];
-    userId: string;
-    createdAt: string;
-    thought: string;
-    socketId: string;
-  }
+  values: number[];  
+  metadata: {
+    userId: string;   
+    thought: string;  
+    socketId: string; 
+  };
+}
   interface MatchFoundPayload {
     yourThought: Thought;
     matchedWith: Thought;
@@ -46,20 +46,19 @@ export default function HomePage() {
 
       socketref.current!.on("waiting_for_match", () => {
         console.log("Waiting for match...");
-        setMatchStatus("Waiting for match...");
         setTimeout(() => {
           console.log("match not found");
           socketref.current!.emit("refresh");
           setMatchStatus("match not found 🙏");
-            setTimeout(() => {
-              setResultPanelOpen(false);
-            }, 2500);
-        }, 60000);
+          setTimeout(() => {
+            setResultPanelOpen(false);
+          }, 2500);
+        }, 90000);
       });
 
       socketref.current!.on("match_found", async (data : MatchFoundPayload) => {
         console.log("Match found!", data);
-        setMatchStatus("Match found!");
+        setMatchStatus("Match found! 🤝 Redirecting to your connection...");
         setMatchedData(data);
       
         try {
@@ -84,7 +83,7 @@ export default function HomePage() {
   
           const channelRes = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/api/chat/channel`, {
             userId,
-            partnerId: data.matchedWith.userId, 
+            partnerId: data.matchedWith.metadata.userId, 
           });
           
           const { channelId } = channelRes.data;
@@ -92,7 +91,7 @@ export default function HomePage() {
   
           // Now you can use that `channelId` to watch the channel:
           const channel = chatClient.channel('messaging', channelId, {
-            members: [userId!, data.matchedWith.userId],
+            members: [userId!, data.matchedWith.metadata.userId],
           });
           
           await channel.watch(); // Optional: Fetch messages, etc.
@@ -145,6 +144,20 @@ export default function HomePage() {
     }
   };
 
+  const handleKeyDown = () => {
+    setResultPanelOpen(true);
+    setMatchStatus("Waiting for match...");
+    sendThought(userId ?? "", thought ?? "");
+  }
+
+  useEffect(() => {
+  const input = document.getElementById('myInput');
+  console.log(input);
+  if (input) {
+    input.addEventListener('keydown', handleKeyDown);
+  }
+}, []);
+
   if (checking) {
     return <div className="flex h-screen w-full justify-center items-center">Loading... please wait</div>; 
   }
@@ -152,21 +165,27 @@ export default function HomePage() {
   return (
     <main className="relative sm:min-h-screen h-[95vh] flex felx-col items-end justify-center p-4">
       <div className="sm:w-1/2 w-full flex flex-col items-center justify-center mb-8 rounded-[2rem] backdrop-blur-md bg-white/10 border border-white/20 px-2 shadow-lg sm:py-3 py-1">
-              <div className={`w-full overflow-hidden transition-[height] duration-500 ease-in-out flex justify-center items-center ${
+              <div className={`w-full overflow-hidden transition-[height] duration-500 ease-in-out flex flex-col gap-4 justify-center items-center ${
                   Resultpanelopen ? 'h-100' : 'h-0'
                 }`}>
-                  <h5>{
+                  <h5 className="text-[1.5rem] funnel-regular max-w-100 text-center ">{
                     matchStatus
                   }</h5>
+                  {matchStatus === "Waiting for match..." && (
+                    <div className="loader"></div>
+                  ) 
+
+                  }
               </div>
 
         <section className="w-full  flex items-center justify-between gap-4 ">
-          <input placeholder="What’s on your mind right now?" className="w-3/4 focus:outline-none font6 " value={thought} onChange={(e) => {
+          <input id="myInput" placeholder="What’s on your mind right now?" className="w-3/4 focus:outline-none font6 " value={thought} onChange={(e) => {
             setThought(e.target.value);
           }}   type="text" />
           <section className=" flex flex-grow items-center justify-end gap-4 ">
             <button onClick={() => {
                   setResultPanelOpen(true);
+                  setMatchStatus("Waiting for match...");
                   sendThought(userId ?? "", thought ?? "");
                 }}className="px-3 text-[0.8rem] font6 rounded-full hover:bg-green-700 text-white border border-white text-black py-2">Go</button>
           </section>
