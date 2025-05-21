@@ -24,6 +24,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+          <head>
+      <title>Vynk – Real-Time AI Thought Matching Platform</title>
+      <meta name="description" content="Vynk connects people in real time based on shared thoughts using AI. No filters. No resumes. Just pure, unfiltered connection." />
+      <meta name="keywords" content="AI social app, anonymous chat, thought sharing, vibe-based matching, Gen Z social network, ambient chat, real-time connection, creative networking" />
+      <meta name="author" content="Vynk Team" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <meta name="google-site-verification" content="H4dxpfXKyBbPYuVq_KUqJ5ev8zF-Dd-oTjqhTu3BaAg" />
+
+      <meta property="og:title" content="Vynk – Real-Time AI Thought Matching" />
+      <meta property="og:description" content="Share thoughts, not resumes. Vynk uses AI to match minds through real-time, anonymous vibes." />
+      <meta property="og:url" content="https://vynk.app" />
+      <meta property="og:type" content="website" />
+    </head>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
