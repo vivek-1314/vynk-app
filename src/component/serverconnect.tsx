@@ -7,7 +7,7 @@ const useSocket = () => {
 
   useEffect(() => {
     socketRef.current = io(process.env.NEXT_PUBLIC_SERVER_URL!, {
-      transports: ['websocket'], // optional: ensures WebSocket only
+      transports: ['websocket'], 
     });
 
     socketRef.current.on('connect', () => {

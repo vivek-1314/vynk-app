@@ -38,6 +38,7 @@ export default function RootLayout({
       <meta property="og:description" content="Share thoughts, not resumes. Vynk uses AI to match minds through real-time, anonymous vibes." />
       <meta property="og:url" content="https://vynk.app" />
       <meta property="og:type" content="website" />
+      <link rel="icon" href="/images_assests/faviconpng.png" type="image/x-icon" />
     </head>
 
       <body

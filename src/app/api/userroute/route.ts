@@ -4,6 +4,10 @@ import { NextResponse } from 'next/server';
 const allowedOrigin = process.env.NEXT_PUBLIC_API_URL;
 
 export async function POST(req: Request) {
+
+  const adjectives = ["Quiet", "Gentle", "Wandering", "Still", "Hidden", "Wistful"];
+  const nouns = ["Fox", "River", "Cloud", "Soul", "Star", "Sky", "Orbit"];
+
   try {
     const { email } = await req.json();
 
@@ -28,8 +32,11 @@ export async function POST(req: Request) {
     const newUser = await prisma.user.create({
       data: {
         email,
+        username:  `${adjectives[Math.floor(Math.random() * adjectives.length)]}${nouns[Math.floor(Math.random() * nouns.length)]}`
       },
     });
+
+    console.log(newUser.username) ;
 
     // Respond with the newly created user
     const response = new NextResponse(
