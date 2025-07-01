@@ -138,7 +138,7 @@ const ChatPage = () => {
     </section>
 
     {/* chat panel */}
-    <section className='sm:w-[40rem] mx-auto sm:h-[80vh] h-[75vh] border-b-[1.2px] border-x-[1.2px] border-[#a7a6a6] scrollbar-hide overflow-scroll flex flex-col gap-[8px] px-4 py-2'>
+    <section className='sm:w-[40rem] w-full mx-auto sm:h-[80vh] h-[75vh] border-b-[1.2px] border-x-[1.2px] border-[#a7a6a6] scrollbar-hide overflow-scroll flex flex-col gap-[8px] px-4 py-2'>
       {messages.map((msg, index) => (
           <div
             key={index}
